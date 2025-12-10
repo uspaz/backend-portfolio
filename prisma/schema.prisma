@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model projects {
+  id          Int      @id(map: "Projects_pkey") @default(autoincrement())
+  title       String
+  description String
+  tools       String[]
+  url         String
+  date        String?
+  company     String?
+  image       String?
+}
+
+model experience {
+  id          Int      @id(map: "Experience_pkey") @default(autoincrement())
+  title       String
+  description String
+  startDate   String
+  endDate     String
+  tools       String[]
+  url         String
+}
